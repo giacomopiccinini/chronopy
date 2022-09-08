@@ -25,3 +25,13 @@ clock.lap()
 clock.summary()
 
 ```
+
+The printing output will be something like:
+
+```
+CLOCK RESULTS 
+Number of blocks: 2
+Block 1: 0.010825157165527344; Rows 10 to 16
+Block 2: 0.000829496383666992; Rows 16 to 19
+
+```
