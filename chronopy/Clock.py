@@ -10,6 +10,9 @@ class Clock():
         # Initialise laps
         self.laps = []
 
+        # Initialise names
+        self.names = []
+
         # Initialise rows
         self.rows = []
 
@@ -17,7 +20,7 @@ class Clock():
         self.n_laps = 0
 
 
-    def lap(self):
+    def lap(self, name='Block'):
 
         # Store time at which clock is called
         self.laps.append(time())
@@ -27,6 +30,9 @@ class Clock():
 
         # Store row number where the clock is called
         self.rows.append(currentframe().f_back.f_lineno)
+
+        # Store name
+        self.names.append(name)
 
 
     def timings(self, initial_block, final_block):
@@ -53,10 +59,16 @@ class Clock():
         # Start writing summary
         print("\nCLOCK RESULTS ")
         print(f"Number of blocks: {self.n_blocks}")
+
         for n in range(self.n_blocks):
 
+            if self.names[n] == "Block":
+                name = f"Block {n + 1}"
+            else:
+                name = self.names[n]
+
             # Print timing and involved rows for each block
-            print(f"Block {n + 1}: {self.laps[n + 1] - self.laps[n]}; Rows {self.rows[n]} to {self.rows[n + 1]}")
+            print(f"{name}: {self.laps[n + 1] - self.laps[n]}; Rows {self.rows[n]} to {self.rows[n + 1]}")
 
 
     def evaluate(self, function, args, iterable, iterable_name):
