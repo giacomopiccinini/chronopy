@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='chronopy',
-    version='0.1.0',    
+    version='0.1.2',    
     description='A simple Python package to measure execution time',
     url='https://github.com/giacomopiccinini/Clock',
     author='Giacomo Piccinini',
