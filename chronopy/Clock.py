@@ -57,8 +57,11 @@ class Clock():
         self.n_blocks = self.n_laps - 1
 
         # Start writing summary
-        print("\nCLOCK RESULTS ")
-        print(f"Number of blocks: {self.n_blocks}")
+        print("\nCLOCK RESULTS\n")
+        print(f"Number of blocks: {self.n_blocks}\n")
+
+        # Total run time
+        total = 0
 
         for n in range(self.n_blocks):
 
@@ -69,6 +72,10 @@ class Clock():
 
             # Print timing and involved rows for each block
             print(f"{name}: {self.laps[n + 1] - self.laps[n]}; Rows {self.rows[n]} to {self.rows[n + 1]}")
+
+            total += self.laps[n + 1] - self.laps[n]
+
+        print(f"\nTotal run time: {total}\n")
 
 
     def evaluate(self, function, args, iterable, iterable_name):
