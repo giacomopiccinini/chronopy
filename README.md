@@ -17,10 +17,8 @@ Once installed, import in your Python session with
 The clock needs to be initialised at some point in your code
 
 ```
-
 # Initialise Clock object (counting not started yet!)
 clock = Clock()
-
 ```
 
 Note, this initialisation is *not* starting the count of elapsed time. 
@@ -35,7 +33,6 @@ clock.lap()
 
 # Stop timing
 clock.lap()
-
 ```
 
 At this point it is possible to get info about timing using 
@@ -43,7 +40,6 @@ At this point it is possible to get info about timing using
 ```
 # Print results
 clock.summary()
-
 ```
 This will print on screen something like
 ```
@@ -54,7 +50,6 @@ Number of blocks: 1
 Block 1: 0.010825157165527344; Rows 10 to 16
 
 Total run time:  0.010825157165527344
-
 ```
 
 In fact, this basic usage can be improved as follows. Everytime you call "lap", you can assign a name to it. This way, when printing the summary
@@ -69,7 +64,6 @@ clock.lap("Matrix Multiplication")
 
 # Stop timing
 clock.lap()
-
 ```
 
 Resulting in 
@@ -82,7 +76,6 @@ Number of blocks: 1
 Matrix Multiplication: 0.010825157165527344; Rows 10 to 16
 
 Total run time:  0.010825157165527344
-
 ```
 
 Finally, it is very useful to concatenate multiple "lap" calls, so as to keep track of different code blocks. A thorough usage would be the following 
@@ -116,7 +109,6 @@ clock.lap()
 
 # Print results
 clock.summary()
-
 ```
 This will print on screen
 
@@ -132,5 +124,4 @@ Matrix Sum: 0.02; Rows 17 to 24
 Max Pooling: 0.03; Rows 25 to 28
 
 Total run time:  0.06
-
 ```
