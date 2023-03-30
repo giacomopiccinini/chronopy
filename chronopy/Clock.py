@@ -76,6 +76,37 @@ class Clock():
             total += self.laps[n + 1] - self.laps[n]
 
         print(f"\nTotal run time: {total}\n")
+        
+    def history(self):
+        
+        """ Similar to summary, returns a dictionary of timings, 
+        with no references to rows. To be used for API metadata. """
+        
+        # Computer number of blocks
+        self.n_blocks = self.n_laps - 1
+        
+        # Init dictionary
+        history = {}
+
+        # Total run time
+        total = 0
+
+        for n in range(self.n_blocks):
+
+            if self.names[n] == "Block":
+                name = f"Block {n + 1}"
+            else:
+                name = self.names[n]
+                
+            # Write time of block
+            history.update({name: self.laps[n + 1] - self.laps[n]})
+
+            total += self.laps[n + 1] - self.laps[n]
+            
+        history.update({"Total" : total})
+
+        return history
+
 
 
     def evaluate(self, function, args, iterable, iterable_name):
